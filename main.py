@@ -11,3 +11,11 @@ def login_parceiro():
 @app.route("/eventos")
 def eventos():
     return render_template("eventos.html")
+
+@app.route("/meus-eventos")
+def meu_eventos():
+    return render_template("meus_eventos.html")
+
+@app.route("/cadastrar-evento")
+def cadastro():
+    return render_template("cadastrar_evento.html")
