@@ -19,3 +19,7 @@ def meu_eventos():
 @app.route("/cadastrar-evento")
 def cadastro():
     return render_template("cadastrar_evento.html")
+
+@app.route("/evento-especifico")
+def evento_especifico():
+    return render_template("evento_especifico.html")
