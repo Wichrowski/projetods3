@@ -1,5 +1,4 @@
 
-- [ ] Enum Tipos de eventos
 - [ ] Enum Area de eventos
 - [ ] Configs por ambiente?
 - [ ] Seeding por ambiente?
@@ -8,9 +7,10 @@
 - [ ] Login
 - [ ] App factory
 - [ ] Testes com Sqlite?
-- [X] ! Deploy Heroku
+- [ ] ! Deploy Heroku
 - [X] Seeding automatico
 - [X] DONE Models em um arquivo separado
 - [X] Seeding em um arquivo separado
 - [X] Nome do parceiro unique
 - [X] Configs em um arquivo separado
+- [X] Enum Tipos de eventos
