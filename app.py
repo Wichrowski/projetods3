@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 from models import(
     db,
@@ -16,9 +17,11 @@ app.config.from_object('config.Config')
 
 db.init_app(app)
 
-with app.app_context():
-    db.create_all()
-    seeding.criar_eventos(db)
+migrate = Migrate(app, db)
+
+# with app.app_context():
+#     db.create_all()
+#     seeding.criar_eventos(db)
 
 @app.route("/pagina-inicial")
 def login_parceiro():

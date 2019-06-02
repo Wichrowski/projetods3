@@ -2,3 +2,6 @@ fileignoreconfig:
 - filename: docker-db.sh
   checksum: 97f54284310107a4478d0af6dfd076404f25890f77ae6fa8420df45686e64013
   ignore_detectors: []
+- filename: migrations/env.py
+  checksum: 68cd25a56ea20ff318de0b4e679012f91eb53873e908ead7e4d8a6c4da5d739a
+  ignore_detectors: []
