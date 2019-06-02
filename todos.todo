@@ -1,10 +1,13 @@
-
+- [ ] Adicionar data aos eventos
+- [ ] Modelar endereco evento
+- [ ] Relacionar parceiro a um novo evento
+- [ ] Template reaproveitavel
+- [ ] Link de cadastro na Navbar
+- [ ] Login
 - [ ] Ajustar altura dos cards evento
 - [ ] Readme
 - [ ] Configs por ambiente?
 - [ ] Seeding por ambiente?
-- [ ] Template reaproveitavel
-- [ ] Login
 - [ ] App factory
 - [ ] Testes com Sqlite?
 - [X] Seeding automatico
@@ -18,3 +21,4 @@
 - [X] Seeding local
 - [X] Enum Area de eventos
 - [X] Integração Heroku com github
+- [X] Cadastrar um novo evento

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login do Parceiro</title>
+    <title>Cadastrar evento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -34,11 +34,7 @@
                 <a class="navbar-item">
                     Eventos
                 </a>
-
-
             </div>
-
-
         </div>
     </nav>
 
@@ -48,124 +44,130 @@
     </div>
 
     <div class="container">
-        <div class="columns">
-            <div class="column is-4">
-                <div class="field">
-                    <label class="label">Nome do Evento</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="">
+        <form action="/cadastrar-evento" method="post">
+            <div class="columns">
+                <div class="column is-4">
+                    <div class="field">
+                        <label class="label">Nome do Evento</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="" name="nome">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="field">
+                        <label class="label">Tipo de Evento</label>
+                        <div class="control">
+                            <div class="select">
+                                <select name="tipo">
+                                    <option>Congresso</option>
+                                    <option>Curso</option>
+                                    <option>Palestra</option>
+                                    <option>Workshop</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="field">
+                        <label class="label">Área</label>
+                        <div class="control">
+                            <div class="select">
+                                <select name="area">
+                                    <option>Administração</option>
+                                    <option>Informática</option>
+                                    <option>Medicina</option>
+                                    <option>Química</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
+            v>
+            
+             class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Descrição do evento</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Descreva aqui seu evento..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="columns">
+                <div class="column is-2">
+                    <div class="field">
+                        <label class="label">Data do Evento</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
             <div class="column is-4">
                 <div class="field">
-                    <label class="label">Tipo de Evento</label>
+                    <label class="label">Cidade</label>
                     <div class="control">
                         <div class="select">
                             <select>
-                                <option>Selecione o tipo</option>
+                                <option>Selecione a cidade</option>
                                 <option>With options</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="column is-4">
                 <div class="field">
-                    <label class="label">Área</label>
+                    <label class="label">Estado</label>
                     <div class="control">
                         <div class="select">
                             <select>
-                                <option>Selecione a área</option>
+                                <option>Selecione o estado</option>
                                 <option>With options</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <div class="field">
-                    <label class="label">Descrição do evento</label>
-                    <div class="control">
-                        <textarea class="textarea" placeholder="Descreva aqui seu evento..."></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="columns">
-            <div class="column is-2">
-                <div class="field">
-                    <label class="label">Data do Evento</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="column is-4">
-            <div class="field">
-                <label class="label">Cidade</label>
-                <div class="control">
-                    <div class="select">
-                        <select>
-                            <option>Selecione a cidade</option>
-                            <option>With options</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="column is-4">
-            <div class="field">
-                <label class="label">Estado</label>
-                <div class="control">
-                    <div class="select">
-                        <select>
-                            <option>Selecione o estado</option>
-                            <option>With options</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="file has-name">
-            <label class="file-label">
-                <input class="file-input" type="file" name="resume">
-                <span class="file-cta">
-                    <span class="file-icon">
-                        <i class="fas fa-upload"></i>
+            v>
+            
+             class="container">
+            <div class="file has-name">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="resume">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Escolha uma imagem…
+                        </span>
                     </span>
-                    <span class="file-label">
-                        Escolha uma imagem…
+                    <span class="file-name">
+                        Screen Shot 2017-07-29 at 15.54.25.png
                     </span>
-                </span>
-                <span class="file-name">
-                    Screen Shot 2017-07-29 at 15.54.25.png
-                </span>
-            </label>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="control">
-            <button class="button is-primary">Salvar</button>
-        </div>
-    </div>
-
+                </label>
+            </div>
+            v>
+            
+             class="container">
+            <div class="control">
+                <button class="button is-primary">Salvar</button>
+            </div>
+            v>
+            
+        </form>
 
 </body>
 
