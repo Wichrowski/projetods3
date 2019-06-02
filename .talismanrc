@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: docker-db.sh
+  checksum: 5d427a3d42e01476c4078711b2688f1dbe40c1b626509f51358c436276bd46ae
+  ignore_detectors: []
