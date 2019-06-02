@@ -1,5 +1,4 @@
 
-- [ ] Integração Heroku com github
 - [ ] Ajustar altura dos cards evento
 - [ ] Readme
 - [ ] Configs por ambiente?
@@ -18,3 +17,4 @@
 - [X] ! Deploy Heroku
 - [X] Seeding local
 - [X] Enum Area de eventos
+- [X] Integração Heroku com github
