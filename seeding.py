@@ -4,13 +4,17 @@ from models import(
 )
 
 def criar_eventos(db):
+    Evento.query.delete()
+    Parceiro.query.delete()
+
     db.session.add(
         Evento(
             nome = "Palestra de Python",
             parceiro = Parceiro(
                 nome = "Python Foundation"
             ),
-            tipo = 'Palestra'
+            tipo = 'Palestra',
+            area = 'Informática'
         )
     )
 
@@ -20,7 +24,8 @@ def criar_eventos(db):
             parceiro = Parceiro(
                 nome = "Oracle"
             ),
-            tipo = 'Palestra'
+            tipo = 'Palestra',
+            area = 'Informática'
         )
     )
 
@@ -30,7 +35,8 @@ def criar_eventos(db):
             parceiro = Parceiro(
                 nome = "Plataformatec"
             ),
-            tipo = 'Workshop'
+            tipo = 'Workshop',
+            area = 'Informática'
         )
     )
 
@@ -40,7 +46,19 @@ def criar_eventos(db):
             parceiro = Parceiro(
                 nome = "Alura"
             ),
-            tipo = 'Curso'
+            tipo = 'Curso',
+            area = 'Informática'
+        )
+    )
+
+    db.session.add(
+        Evento(
+            nome = "Congresso Nacional de Ácido Sulfúrico",
+            parceiro = Parceiro(
+                nome = "Instituto Nacional de Química"
+            ),
+            tipo = 'Congresso',
+            area = 'Química'
         )
     )
 

@@ -19,7 +19,15 @@ class Evento(db.Model):
         'Workshop',
         'Palestra',
         'Curso',
+        'Congresso',
         name = 'tipo_evento'))
+
+    area = db.Column(db.Enum(
+        'Informática',
+        'Medicina',
+        'Química',
+        'Administração',
+        name = 'area_evento'))
 
     id_parceiro = db.Column(db.Integer(), db.ForeignKey('parceiro.id'))
 

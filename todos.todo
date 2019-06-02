@@ -1,5 +1,5 @@
 
-- [ ] Enum Area de eventos
+- [ ] Integração com github
 - [ ] Readme
 - [ ] Configs por ambiente?
 - [ ] Seeding por ambiente?
@@ -16,3 +16,4 @@
 - [X] Migracoes?
 - [X] ! Deploy Heroku
 - [X] Seeding local
+- [X] Enum Area de eventos
