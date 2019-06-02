@@ -1,14 +1,66 @@
 from flask import Flask
 from flask import render_template
 from flask_login import LoginManager
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:projeto_ds3@localhost:5432/projeto_ds3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+db = SQLAlchemy(app)
+
 login_manager = LoginManager()
 
-class Evento:
-    def __init__(self, nome, nome_parceiro):
-        self.nome = nome
-        self.nome_parceiro = nome_parceiro
+class Parceiro(db.Model):
+    __tablename__ = 'parceiro'
+
+    id = db.Column(db.Integer(), primary_key = True)
+    nome = db.Column(db.String(), unique = True)
+
+class Evento(db.Model):
+
+    __tablename__ = 'evento'
+
+    id = db.Column(db.Integer(), primary_key = True)
+    nome = db.Column(db.String(), unique = True)
+    id_parceiro = db.Column(db.Integer(), db.ForeignKey('parceiro.id'))
+    parceiro = db.relationship('Parceiro')
+
+db.create_all()
+
+@app.route("/seed")
+def seeding():
+    db.session.add(
+        Evento(
+            nome = "Palestra de Python",
+            parceiro = Parceiro(
+                nome = "Python Foundation"
+            )
+        )
+    )
+
+    db.session.add(
+        Evento(
+            nome = "Palestra de Java",
+            parceiro = Parceiro(
+                nome = "Oracle"
+            )
+        )
+    )
+
+    db.session.add(
+        Evento(
+            nome = "Workshop de Rails",
+            parceiro = Parceiro(
+                nome = "Plataformatec"
+            )
+        )
+    )
+
+    db.session.commit()
+
+    return "ok"
 
 @app.route("/pagina-inicial")
 def login_parceiro():
@@ -16,11 +68,7 @@ def login_parceiro():
 
 @app.route("/eventos")
 def eventos():
-    return render_template("eventos.html", eventos = [
-        Evento("Palestra de Python", "Python Foundation"),
-        Evento("Palestra de Java", "Oracle"),
-        Evento("Workshop de Rails", "Plataformatec")
-    ])
+    return render_template("eventos.html", eventos = Evento.query.all())
 
 @app.route("/meus-eventos")
 def meu_eventos():

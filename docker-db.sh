@@ -1,5 +1,6 @@
 CONTAINER_NAME=projeto_ds3
 DATABASE_NAME=projeto_ds3
+DATABASE_PASSWORD=projeto_ds3
 POSTGRES_VERSION="9.5"
 
 case $1 in
@@ -9,7 +10,7 @@ case $1 in
       --rm \
       --name ${CONTAINER_NAME} \
       --publish 5432:5432 \
-      --env POSTGRES_PASSWORD=${DATABASE_NAME}\
+      --env POSTGRES_PASSWORD=${DATABASE_PASSWORD}\
       postgres:${POSTGRES_VERSION}
     ;;
 
@@ -17,14 +18,37 @@ case $1 in
     docker exec \
       --interactive \
       --tty \
-      ${CONTAINER_NAME} psql -U postgres -c "CREATE DATABASE ${DATABASE_NAME}"
+      ${CONTAINER_NAME} \
+      psql -U postgres -c "CREATE DATABASE $DATABASE_NAME"
+    ;;
+
+  drop)
+    docker exec \
+      --interactive \
+      --tty \
+      ${CONTAINER_NAME} \
+      psql -U postgres -c "DROP DATABASE ${DATABASE_NAME};"
+    ;;
+  flush)
+    docker exec \
+      --interactive \
+      --tty \
+      ${CONTAINER_NAME} \
+      psql -U postgres -c "DROP DATABASE ${DATABASE_NAME};"
+
+    docker exec \
+      --interactive \
+      --tty \
+      ${CONTAINER_NAME} \
+      psql -U postgres -c "CREATE DATABASE $DATABASE_NAME"
     ;;
 
   console)
     docker exec \
       --interactive \
       --tty \
-      ${CONTAINER_NAME} psql -U postgres -d ${DATABASE_NAME}
+      ${CONTAINER_NAME} \
+      psql -U postgres -d ${DATABASE_NAME}
     ;;
 
   *)

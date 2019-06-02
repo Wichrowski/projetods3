@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="columns">
+                    <div class="columns is-multiline">
 
                         {% for evento in eventos %}
 
@@ -130,7 +130,7 @@
                                         <div class="media-content">
                                             <div class="content">
                                                 <p class="subtitle">{{evento.nome}}</p>
-                                                <p class="heading">{{evento.nome_parceiro}}</p>
+                                                <p class="heading">{{evento.parceiro.nome}}</p>
                                                 <small>Porto Alegre, Rio Grande do Sul</small>
                                             </div>
                                             <nav class="level">
