@@ -12,19 +12,14 @@ import seeding
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:projeto_ds3@localhost:5432/projeto_ds3'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config.from_object('config.Config')
 
 db.init_app(app)
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
-
-@app.route("/seed")
-def seeding():
     seeding.criar_eventos(db)
-
-    return "ok"
 
 @app.route("/pagina-inicial")
 def login_parceiro():
