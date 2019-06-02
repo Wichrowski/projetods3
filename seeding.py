@@ -1,10 +1,16 @@
+from models import(
+    Evento,
+    Parceiro
+)
+
 def criar_eventos(db):
     db.session.add(
         Evento(
             nome = "Palestra de Python",
             parceiro = Parceiro(
                 nome = "Python Foundation"
-            )
+            ),
+            tipo = 'Palestra'
         )
     )
 
@@ -13,7 +19,8 @@ def criar_eventos(db):
             nome = "Palestra de Java",
             parceiro = Parceiro(
                 nome = "Oracle"
-            )
+            ),
+            tipo = 'Palestra'
         )
     )
 
@@ -22,7 +29,18 @@ def criar_eventos(db):
             nome = "Workshop de Rails",
             parceiro = Parceiro(
                 nome = "Plataformatec"
-            )
+            ),
+            tipo = 'Workshop'
+        )
+    )
+
+    db.session.add(
+        Evento(
+            nome = "Testes funcionais com Cypress",
+            parceiro = Parceiro(
+                nome = "Alura"
+            ),
+            tipo = 'Curso'
         )
     )
 
