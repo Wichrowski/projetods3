@@ -1,16 +1,18 @@
 
 - [ ] Enum Area de eventos
+- [ ] Readme
 - [ ] Configs por ambiente?
 - [ ] Seeding por ambiente?
-- [ ] Migracoes?
 - [ ] Template reaproveitavel
 - [ ] Login
 - [ ] App factory
 - [ ] Testes com Sqlite?
-- [ ] ! Deploy Heroku
 - [X] Seeding automatico
 - [X] DONE Models em um arquivo separado
 - [X] Seeding em um arquivo separado
 - [X] Nome do parceiro unique
 - [X] Configs em um arquivo separado
 - [X] Enum Tipos de eventos
+- [X] Migracoes?
+- [X] ! Deploy Heroku
+- [X] Seeding local

@@ -19,9 +19,9 @@ db.init_app(app)
 
 migrate = Migrate(app, db)
 
-# with app.app_context():
-#     db.create_all()
-#     seeding.criar_eventos(db)
+@app.cli.command(help = 'Executa o seeding com dados de teste')
+def seed():
+    seeding.criar_eventos(db)
 
 @app.route("/pagina-inicial")
 def login_parceiro():
