@@ -17,7 +17,6 @@ app.config.from_object('config.Config')
 db.init_app(app)
 
 with app.app_context():
-    db.drop_all()
     db.create_all()
     seeding.criar_eventos(db)
 
