@@ -1,5 +1,6 @@
 
-- [ ] Integração com github
+- [ ] Integração Heroku com github
+- [ ] Ajustar altura dos cards evento
 - [ ] Readme
 - [ ] Configs por ambiente?
 - [ ] Seeding por ambiente?
