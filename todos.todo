@@ -1,4 +1,4 @@
-- [ ] Deletar evento
+- [ ] Homepage
 - [ ] Mensagem confirmando deleção
 - [ ] Customizar Regras Flake8
 - [ ] Adicionar data aos eventos
@@ -25,3 +25,5 @@
 - [X] Enum Area de eventos
 - [X] Integração Heroku com github
 - [X] Cadastrar um novo evento
+- [X] Deletar evento
+- [X] Deletar arquivos duplicados
