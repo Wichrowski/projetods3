@@ -1,3 +1,6 @@
+- [ ] Deletar evento
+- [ ] Mensagem confirmando deleção
+- [ ] Customizar Regras Flake8
 - [ ] Adicionar data aos eventos
 - [ ] Modelar endereco evento
 - [ ] Relacionar parceiro a um novo evento
