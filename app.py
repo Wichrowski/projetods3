@@ -25,7 +25,7 @@ def login_parceiro():
     return render_template("login_parceiro.html")
 
 
-@app.route("/eventos")
+@app.route("/")
 def eventos():
     return render_template(
             "eventos.html",
@@ -38,12 +38,12 @@ def meu_eventos():
     return render_template("meus_eventos.html")
 
 
-@app.route("/cadastrar-evento")
+@app.route("/evento/cadastrar")
 def cadastro_evento():
     return render_template("cadastrar_evento.html")
 
 
-@app.route("/cadastrar-evento", methods=["POST"])
+@app.route("/evento/cadastrar", methods=["POST"])
 def salvar_cadastro_evento():
     evento_service.salvar(request.form)
     return redirect(url_for('eventos'))

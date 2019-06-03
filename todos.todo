@@ -1,11 +1,11 @@
-- [ ] Homepage
-- [ ] Mensagem confirmando deleção
-- [ ] Customizar Regras Flake8
 - [ ] Adicionar data aos eventos
+- [ ] Seeding de usuario e parceiro
+- [ ] Mensagem confirmando deleção
+- [ ] Mensagem deleção com sucesso
+- [ ] Customizar Regras Flake8
 - [ ] Modelar endereco evento
 - [ ] Relacionar parceiro a um novo evento
-- [ ] Template reaproveitavel
-- [ ] Link de cadastro na Navbar
+- [ ] Link de cadastro de evento na Navbar
 - [ ] Login
 - [ ] Ajustar altura dos cards evento
 - [ ] Readme
@@ -27,3 +27,5 @@
 - [X] Cadastrar um novo evento
 - [X] Deletar evento
 - [X] Deletar arquivos duplicados
+- [X] Homepage
+- [X] Template reaproveitavel

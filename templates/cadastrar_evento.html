@@ -1,49 +1,9 @@
-<!DOCTYPE html>
-<html class="has-background-light">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastrar evento</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
-
-<body>
-
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="">
-                <img src="/static/ds3az.png" alt="Desenvolvimento de Software 3">
-            </a>
-
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Página Inicial
-                </a>
-
-                <a class="navbar-item">
-                    Eventos
-                </a>
-            </div>
-        </div>
-    </nav>
-
+{% block content %}
 
     <div class="container">
-        <h1 class="title">Cadastrar Eventos</h1>
-    </div>
-
-    <div class="container">
+        <h1 class="title">Cadastrar Evento</h1>
         <form action="/cadastrar-evento" method="post">
             <div class="columns">
                 <div class="column is-4">
@@ -98,7 +58,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="columns">
                 <div class="column is-2">
                     <div class="field">
@@ -109,8 +68,6 @@
                     </div>
                 </div>
             </div>
-            
-            
             <div class="column is-4">
                 <div class="field">
                     <label class="label">Cidade</label>
@@ -124,7 +81,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="column is-4">
                 <div class="field">
                     <label class="label">Estado</label>
@@ -138,9 +94,6 @@
                     </div>
                 </div>
             </div>
-            v>
-            
-             class="container">
             <div class="file has-name">
                 <label class="file-label">
                     <input class="file-input" type="file" name="resume">
@@ -157,16 +110,11 @@
                     </span>
                 </label>
             </div>
-            v>
-            
-             class="container">
+
             <div class="control">
                 <button class="button is-primary">Salvar</button>
             </div>
-            v>
-            
         </form>
+    </div>
 
-</body>
-
-</html>
+{% endblock %}

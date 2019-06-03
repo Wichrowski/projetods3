@@ -1,156 +1,124 @@
-<!DOCTYPE html>
-<html class="has-background-light">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Eventos</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    </head>
+{% extends "layout.html" %}
+{% block content %}
 
-    <body>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="#">
-                    <img src="/static/ds3v.png" alt="Desenvolvimento de Software 3">
-                </a>
-
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item"> Página Inicial </a>
-                    <a class="navbar-item"> Eventos </a>
-                </div>
-            </div>
-        </nav>
-
-        <div class="section">
-            <div class="container">
-                <div class="level">
-
-                    <div class="level-item">
-                        <div class="field">
-                            <div class="control">
-                                <p class="heading"><b>Parceiro</b></p>
-                                <div class="select is-warning">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>With options</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="level-item">
-                        <div class="field">
-                            <div class="control">
-                                <p class="heading"><b>Tipo de Evento</b></p>
-                                <div class="select is-warning">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>With options</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="level-item">
-                        <div class="field">
-                            <div class="control">
-                                <p class="heading"><b>Área</b></p>
-                                <div class="select is-warning">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>With options</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="level-item">
-                        <div class="field">
-                            <div class="control">
-                                <p class="heading"><b>Cidade</b></p>
-                                <div class="select is-warning">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>With options</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="level-item">
-                        <div class="field">
-                            <div class="control">
-                                <p class="heading"><b>Estado</b></p>
-                                <div class="select is-warning">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>With options</option>
-                                    </select>
-                                </div>
-                            </div>
+<div class="section">
+    <div class="container">
+        <div class="level">
+            <div class="level-item">
+                <div class="field">
+                    <div class="control">
+                        <p class="heading"><b>Parceiro</b></p>
+                        <div class="select is-warning">
+                            <select>
+                                <option>Selecione a opção</option>
+                                <option>With options</option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
-                <div class="container">
-                    <div class="columns is-multiline">
-
-                        {% for evento in eventos %}
-
-                        <div class="column is-4">
-                            <div class="box">
-                                <article class="media">
-                                    <div class="media-left">
-                                        <figure class="image is-64x64">
-                                            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                                        </figure>
-                                    </div>
-                                    <div class="media-content">
-                                        <div class="content">
-                                            <p class="subtitle">{{evento.nome}}</p>
-                                            <p class="heading">{{evento.parceiro.nome}}</p>
-                                            <small>Porto Alegre, Rio Grande do Sul</small>
-                                        </div>
-                                        <nav class="level">
-                                            <div class="level-left">
-                                                <div class="level-item">
-                                                    <span class="tag is-primary">{{evento.tipo}}</span>
-                                                </div>
-                                                <div class="level-item">
-                                                    <span class="tag is-success">{{evento.area}}</span>
-                                                </div>
-                                            </div>
-                                        </nav>
-                                    </div>
-                                    <div class="media-right">
-                                        <form action="/evento/{{evento.id}}/deletar" method="post">
-                                            <button class="delete" type="submit"></button>
-                                        </form>
-                                    </div>
-                                </article>
-                            </div>
+            <div class="level-item">
+                <div class="field">
+                    <div class="control">
+                        <p class="heading"><b>Tipo de Evento</b></p>
+                        <div class="select is-warning">
+                            <select>
+                                <option>Selecione a opção</option>
+                                <option>With options</option>
+                            </select>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
 
+            <div class="level-item">
+                <div class="field">
+                    <div class="control">
+                        <p class="heading"><b>Área</b></p>
+                        <div class="select is-warning">
+                            <select>
+                                <option>Selecione a opção</option>
+                                <option>With options</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-item">
+                <div class="field">
+                    <div class="control">
+                        <p class="heading"><b>Cidade</b></p>
+                        <div class="select is-warning">
+                            <select>
+                                <option>Selecione a opção</option>
+                                <option>With options</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-item">
+                <div class="field">
+                    <div class="control">
+                        <p class="heading"><b>Estado</b></p>
+                        <div class="select is-warning">
+                            <select>
+                                <option>Selecione a opção</option>
+                                <option>With options</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+</div>
 
-</html>
+<div class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+
+            {% for evento in eventos %}
+
+            <div class="column is-4">
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="subtitle">{{evento.nome}}</p>
+                                <p class="heading">{{evento.parceiro.nome}}</p>
+                                <small>Porto Alegre, Rio Grande do Sul</small>
+                            </div>
+                            <nav class="level">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <span class="tag is-primary">{{evento.tipo}}</span>
+                                    </div>
+                                    <div class="level-item">
+                                        <span class="tag is-success">{{evento.area}}</span>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="media-right">
+                            <form action="/evento/{{evento.id}}/deletar" method="post">
+                                <button class="delete" type="submit"></button>
+                            </form>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
