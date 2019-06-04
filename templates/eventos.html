@@ -1,78 +1,32 @@
 {% extends "layout.html" %}
+
+{% macro filter_select(label, name, options = []) -%}
+<div class="level-item">
+    <div class="field">
+        <div class="control">
+            <p class="heading"><b>{{ label }}</b></p>
+            <div class="select is-warning">
+                <select name="{{name}}">
+                    {% for option in options %}
+                        <option>{{option}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+{%- endmacro %}
+
 {% block content %}
 
 <div class="section">
     <div class="container">
         <div class="level">
-            <div class="level-item">
-                <div class="field">
-                    <div class="control">
-                        <p class="heading"><b>Parceiro</b></p>
-                        <div class="select is-warning">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="level-item">
-                <div class="field">
-                    <div class="control">
-                        <p class="heading"><b>Tipo de Evento</b></p>
-                        <div class="select is-warning">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="level-item">
-                <div class="field">
-                    <div class="control">
-                        <p class="heading"><b>Área</b></p>
-                        <div class="select is-warning">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="level-item">
-                <div class="field">
-                    <div class="control">
-                        <p class="heading"><b>Cidade</b></p>
-                        <div class="select is-warning">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="level-item">
-                <div class="field">
-                    <div class="control">
-                        <p class="heading"><b>Estado</b></p>
-                        <div class="select is-warning">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>With options</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{filter_select(label = 'Parceiro', name = 'parceiro', options = ['With Options'])}}
+            {{filter_select(label = 'Tipo de Evento', name = 'tipo', options = ['With Options'])}}
+            {{filter_select(label = 'Área', name = 'area', options = ['With Options'])}}
+            {{filter_select(label = 'Cidade', name = 'cidade', options = ['With Options'])}}
+            {{filter_select(label = 'Estado', name = 'estado', options = ['With Options'])}}
         </div>
     </div>
 </div>
@@ -95,6 +49,9 @@
                             <div class="content">
                                 <p class="subtitle">{{evento.nome}}</p>
                                 <p class="heading">{{evento.parceiro.nome}}</p>
+                                <p>
+                                    <small class="formatted-date">{{evento.data}}</small>
+                                </p>
                                 <small>Porto Alegre, Rio Grande do Sul</small>
                             </div>
                             <nav class="level">
@@ -121,4 +78,18 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block custom_scripts %}
+<script>
+var datas = document.querySelectorAll('.formatted-date');
+
+datas.forEach(function(campoData) {
+    var dataLegivel = moment(campoData.textContent)
+        .locale('pt-BR')
+        .format('dddd, DD [de] MMMM [de] Y')
+
+    campoData.textContent = dataLegivel;
+})
+</script>
 {% endblock %}

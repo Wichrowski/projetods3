@@ -1,5 +1,6 @@
-- [ ] Adicionar Pikaday
 - [ ] Adicionar data aos eventos
+- [ ] Salvar data do formulario de eventos
+- [ ] Formatar data dos eventos
 - [ ] Seeding de usuario e parceiro
 - [ ] Mensagem confirmando deleção
 - [ ] Mensagem deleção com sucesso
@@ -30,3 +31,4 @@
 - [X] Homepage
 - [X] Template reaproveitavel
 - [X] Customizar Regras Flake8
+- [X] Adicionar Pikaday

@@ -1,7 +1,12 @@
+from datetime import datetime
 from models import (
     Evento,
     Parceiro
 )
+
+
+def data(valor_em_string):
+    return datetime.strptime(valor_em_string, '%d/%m/%Y')
 
 
 def criar_eventos(db):
@@ -15,7 +20,8 @@ def criar_eventos(db):
                 nome = "Python Foundation"
             ),
             tipo = 'Palestra',
-            area = 'Informática'
+            area = 'Informática',
+            data = data('04/06/2019')
         )
     )
 
@@ -26,7 +32,8 @@ def criar_eventos(db):
                 nome = "Oracle"
             ),
             tipo = 'Palestra',
-            area = 'Informática'
+            area = 'Informática',
+            data = data('04/07/2019')
         )
     )
 
@@ -37,7 +44,8 @@ def criar_eventos(db):
                 nome = "Plataformatec"
             ),
             tipo = 'Workshop',
-            area = 'Informática'
+            area = 'Informática',
+            data = data('05/08/2019')
         )
     )
 
@@ -48,7 +56,8 @@ def criar_eventos(db):
                 nome = "Alura"
             ),
             tipo = 'Curso',
-            area = 'Informática'
+            area = 'Informática',
+            data = data('04/08/2019')
         )
     )
 
@@ -59,7 +68,8 @@ def criar_eventos(db):
                 nome = "Instituto Nacional de Química"
             ),
             tipo = 'Congresso',
-            area = 'Química'
+            area = 'Química',
+            data = data('10/09/2019')
         )
     )
 
