@@ -3,7 +3,6 @@
 - [ ] Seeding de usuario e parceiro
 - [ ] Mensagem confirmando deleção
 - [ ] Mensagem deleção com sucesso
-- [ ] Customizar Regras Flake8
 - [ ] Modelar endereco evento
 - [ ] Relacionar parceiro a um novo evento
 - [ ] Link de cadastro de evento na Navbar
@@ -30,3 +29,4 @@
 - [X] Deletar arquivos duplicados
 - [X] Homepage
 - [X] Template reaproveitavel
+- [X] Customizar Regras Flake8

@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, url_for, redirect
 from flask_migrate import Migrate
 
-from models import db, Evento
+from models import db
 from services import evento_service
 
 import seeding
@@ -28,8 +28,8 @@ def login_parceiro():
 @app.route("/")
 def eventos():
     return render_template(
-            "eventos.html",
-            eventos=evento_service.buscar_todos()
+        "eventos.html",
+        eventos=evento_service.buscar_todos()
     )
 
 

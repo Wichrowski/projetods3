@@ -1,7 +1,8 @@
-from models import(
+from models import (
     Evento,
     Parceiro
 )
+
 
 def criar_eventos(db):
     Evento.query.delete()
