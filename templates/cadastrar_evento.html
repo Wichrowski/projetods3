@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 
+{% block external_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+<script src="/static/js/date-picker.js"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
@@ -12,7 +18,7 @@
 
     <div class="columns">
         <div class="column is-three-fifths is-offset-one-fifth">
-            <form action="/cadastrar-evento" method="post">
+            <form action="{{url_for('salvar_cadastro_evento')}}" method="post">
                 <div class="field is-grouped">
                     <div class="field">
                         <label class="label" for="nome">Nome </label>
@@ -23,7 +29,7 @@
                     <div class="field">
                         <label class="label">Data do Evento</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="">
+                            <input class="input" type="text" placeholder="" name="data" id="seletor-data" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -96,5 +102,10 @@
         </div>
     </div>
 </div>
+{% endblock %}
 
+{% block custom_scripts %}
+<script>
+    var picker = datePicker('#seletor-data');
+</script>
 {% endblock %}
