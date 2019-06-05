@@ -68,20 +68,10 @@
                         <label class="label">Cidade</label>
                         <div class="control">
                             <div class="select">
-                                <select>
-                                    <option>Selecione a cidade</option>
-                                    <option>With options</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Estado</label>
-                        <div class="control">
-                            <div class="select">
-                                <select>
-                                    <option>Selecione o estado</option>
-                                    <option>With options</option>
+                                <select name = "id_cidade">
+                                    {% for cidade in opcoes_cidades %}
+                                    <option value="{{cidade.id}}">{{cidade.nome}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>

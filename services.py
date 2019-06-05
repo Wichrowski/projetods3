@@ -1,4 +1,4 @@
-from models import db, Evento
+from models import db, Evento, Cidade, Endereco
 from datetime import datetime
 
 
@@ -19,11 +19,20 @@ class EventoService:
             nome = form['nome'],
             area = form['area'],
             tipo = form['tipo'],
-            data = interpretar_data_form(form)
+            data = interpretar_data_form(form),
+            endereco = Endereco(
+                id_cidade = form['id_cidade']
+            )
         )
 
         db.session.add(novo_evento)
         db.session.commit()
 
 
+class CidadeService:
+    def todas(self):
+        return Cidade.query.all()
+
+
+cidade_service = CidadeService()
 evento_service = EventoService()

@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, url_for, redirect
 from flask_migrate import Migrate
 
 from models import db
-from services import evento_service
+from services import evento_service, cidade_service
 
 import seeding
 
@@ -40,7 +40,10 @@ def meu_eventos():
 
 @app.route("/evento/cadastrar")
 def cadastro_evento():
-    return render_template("cadastrar_evento.html")
+    return render_template(
+        "cadastrar_evento.html",
+        opcoes_cidades = cidade_service.todas()
+    )
 
 
 @app.route("/evento/cadastrar", methods=["POST"])

@@ -1,12 +1,15 @@
-- [ ] Adicionar data aos eventos
-- [ ] Salvar data do formulario de eventos
-- [ ] Formatar data dos eventos
+- [ ] Editar evento
+- [ ] Adicionar descricao ao evento
+- [ ] Validar formulário de cadastro
+  - [ ] Nome nao vazio
+  - [ ] Data obrigatoria
+  - [ ] Data no formato valido
+- [ ] Logradouro no form
+- [ ] Exibir logradouro na pagina do evento
 - [ ] Seeding de usuario e parceiro
 - [ ] Mensagem confirmando deleção
 - [ ] Mensagem deleção com sucesso
-- [ ] Modelar endereco evento
 - [ ] Relacionar parceiro a um novo evento
-- [ ] Link de cadastro de evento na Navbar
 - [ ] Login
 - [ ] Ajustar altura dos cards evento
 - [ ] Readme
@@ -32,3 +35,8 @@
 - [X] Template reaproveitavel
 - [X] Customizar Regras Flake8
 - [X] Adicionar Pikaday
+- [X] Adicionar data aos eventos
+- [X] Salvar data do formulario de eventos
+- [X] Formatar data dos eventos
+- [X] Link de cadastro de evento na Navbar
+- [X] Modelar endereco evento
