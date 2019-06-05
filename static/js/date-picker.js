@@ -2,8 +2,6 @@ function datePicker(selector) {
 
   var field = document.querySelector(selector);
 
-  console.log(field);
-
   var picker = new Pikaday({
     field: document.querySelector(selector),
     format: 'DD/MM/YYYY',
@@ -29,5 +27,7 @@ function datePicker(selector) {
 
       return `${day}/${month}/${year}`;
     }
-  })
+  });
+
+  return picker;
 }
