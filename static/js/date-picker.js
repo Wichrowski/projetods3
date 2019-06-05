@@ -5,6 +5,7 @@ function datePicker(selector) {
   var picker = new Pikaday({
     field: document.querySelector(selector),
     format: 'DD/MM/YYYY',
+    minDate: moment().toDate(),
     i18n: {
       previousMonth: 'Mês anterior',
       nextMonth: 'Próximo mês',

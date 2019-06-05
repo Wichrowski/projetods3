@@ -11,7 +11,8 @@ class EventoService:
     def vazio(self):
         return Evento(
             nome = "",
-            data = datetime.today().strftime('%d/%m/%Y')
+            data = datetime.today().strftime('%d/%m/%Y'),
+            endereco = Endereco()
         )
 
     def encontrar_por_id(self, id):
@@ -24,8 +25,6 @@ class EventoService:
         Evento.query.filter_by(id = id_evento).delete()
         db.session.commit()
 
-    # def _evt(self, form):
-
     def salvar(self, form):
         if form['id'] != 'None':
             evento = Evento\
@@ -36,6 +35,7 @@ class EventoService:
             evento.area = form['area']
             evento.tipo = form['tipo']
             evento.data = interpretar_data_form(form)
+            evento.endereco.id_cidade = form['id_cidade']
             db.session.commit()
         else:
             novo_evento = Evento(

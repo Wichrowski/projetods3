@@ -1,8 +1,3 @@
-- [ ] Editar evento
-  - [ ] Manter opcoes selects (atributo option selected)
-  - [ ] Como atualizar endereço?
-  - [X] Descobrir como sqlalchemy faz update
-  - [X] Consertar preenchimento de data no form
 - [ ] Adicionar descricao ao evento
 - [ ] Validar formulário de cadastro
   - [ ] Nome nao vazio
@@ -44,3 +39,8 @@
 - [X] Formatar data dos eventos
 - [X] Link de cadastro de evento na Navbar
 - [X] Modelar endereco evento
+- [X] Editar evento
+  - [X] Descobrir como sqlalchemy faz update
+  - [X] Consertar preenchimento de data no form
+  - [X] Como atualizar endereço?
+  - [X] Manter opcoes selects (atributo option selected)

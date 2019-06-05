@@ -6,6 +6,15 @@
 <script src="/static/js/date-picker.js"></script>
 {% endblock %}
 
+{% macro option(value, current_value, label = "") -%}
+
+<option value="{{value}}" {{"selected" if value == current_value else ""}}>
+    {{label if label != "" else value}}
+</option>
+
+{%- endmacro %}
+
+
 {% block content %}
 
 <div class="container">
@@ -40,8 +49,11 @@
                         <div class="control">
                             <div class="select">
                                 <select name = "id_cidade">
+                                    {% if evento.endereco.id_cidade == None %}
+                                    <option selected disabled hidden>Selecione uma cidade</option>
+                                    {% endif %}
                                     {% for cidade in opcoes_cidades %}
-                                    <option value="{{cidade.id}}">{{cidade.nome}}</option>
+                                    {{ option( current_value = evento.endereco.id_cidade, value = cidade.id, label = cidade.nome ) }}
                                     {% endfor %}
                                 </select>
                             </div>
@@ -55,10 +67,13 @@
                         <div class="control">
                             <div class="select">
                                 <select name="tipo">
-                                    <option>Congresso</option>
-                                    <option>Curso</option>
-                                    <option>Palestra</option>
-                                    <option>Workshop</option>
+                                    {% if evento.tipo == None %}
+                                    <option selected disabled hidden>Selecione um tipo</option>
+                                    {% endif %}
+                                    {{ option(current_value = evento.tipo, value = 'Congresso') }}
+                                    {{ option(current_value = evento.tipo, value = 'Curso') }}
+                                    {{ option(current_value = evento.tipo, value = 'Palestra') }}
+                                    {{ option(current_value = evento.tipo, value = 'Workshop') }}
                                 </select>
                             </div>
                         </div>
@@ -68,10 +83,13 @@
                         <div class="control">
                             <div class="select">
                                 <select name="area">
-                                    <option>Administração</option>
-                                    <option>Informática</option>
-                                    <option>Medicina</option>
-                                    <option>Química</option>
+                                    {% if evento.area == None %}
+                                    <option selected disabled hidden>Selecione uma area</option>
+                                    {% endif %}
+                                    {{ option(current_value = evento.area, value = 'Administração') }}
+                                    {{ option(current_value = evento.area, value = 'Informática') }}
+                                    {{ option(current_value = evento.area, value = 'Medicina') }}
+                                    {{ option(current_value = evento.area, value = 'Química') }}
                                 </select>
                             </div>
                         </div>
