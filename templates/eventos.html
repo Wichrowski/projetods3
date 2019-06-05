@@ -67,8 +67,19 @@
                         </div>
                         <div class="media-right">
                             <form action="/evento/{{evento.id}}/deletar" method="post">
-                                <button class="delete" type="submit"></button>
+                                <button type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </button>
                             </form>
+                            <a href= "{{url_for('editar_evento', id_evento = evento.id)}}">
+                                <button type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </button>
+                            </a>
                         </div>
                     </article>
                 </div>

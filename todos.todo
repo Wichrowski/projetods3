@@ -1,4 +1,5 @@
 - [ ] Editar evento
+  - [ ] Consertar preenchimento de data no form
   - [ ] Manter opcoes selects (atributo option selected)
   - [ ] Como atualizar endereço?
   - [X] Descobrir como sqlalchemy faz update
