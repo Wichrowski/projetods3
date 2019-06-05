@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, url_for, redirect
 from flask_migrate import Migrate
 
-from models import db
+from models import db, Evento
 from services import evento_service, cidade_service
 
 import seeding
@@ -42,6 +42,16 @@ def meu_eventos():
 def cadastro_evento():
     return render_template(
         "cadastrar_evento.html",
+        evento = evento_service.vazio(),
+        opcoes_cidades = cidade_service.todas()
+    )
+
+
+@app.route("/evento/<id_evento>/editar")
+def editar_evento(id_evento):
+    return render_template(
+        "cadastrar_evento.html",
+        evento = evento_service.encontrar_por_id(id_evento),
         opcoes_cidades = cidade_service.todas()
     )
 

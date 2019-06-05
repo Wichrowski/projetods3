@@ -1,4 +1,7 @@
 - [ ] Editar evento
+  - [ ] Manter opcoes selects (atributo option selected)
+  - [ ] Como atualizar endereço?
+  - [X] Descobrir como sqlalchemy faz update
 - [ ] Adicionar descricao ao evento
 - [ ] Validar formulário de cadastro
   - [ ] Nome nao vazio
