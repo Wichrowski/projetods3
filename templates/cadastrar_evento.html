@@ -72,6 +72,7 @@
                                     {% endif %}
                                     {{ option(current_value = evento.tipo, value = 'Congresso') }}
                                     {{ option(current_value = evento.tipo, value = 'Curso') }}
+                                    {{ option(current_value = evento.tipo, value = 'Meetup') }}
                                     {{ option(current_value = evento.tipo, value = 'Palestra') }}
                                     {{ option(current_value = evento.tipo, value = 'Workshop') }}
                                 </select>
@@ -87,9 +88,21 @@
                                     <option selected disabled hidden>Selecione uma area</option>
                                     {% endif %}
                                     {{ option(current_value = evento.area, value = 'Administração') }}
+                                    {{ option(current_value = evento.area, value = 'Arquitetura') }}
+                                    {{ option(current_value = evento.area, value = 'Arte') }}
+                                    {{ option(current_value = evento.area, value = 'Ciências Sociais') }}
+                                    {{ option(current_value = evento.area, value = 'Comunicação') }}
+                                    {{ option(current_value = evento.area, value = 'Design') }}
+                                    {{ option(current_value = evento.area, value = 'Direito') }}
+                                    {{ option(current_value = evento.area, value = 'Economia') }}
+                                    {{ option(current_value = evento.area, value = 'Educação') }}
+                                    {{ option(current_value = evento.area, value = 'Engenharia') }}
+                                    {{ option(current_value = evento.area, value = 'Gastronomia') }}
                                     {{ option(current_value = evento.area, value = 'Informática') }}
-                                    {{ option(current_value = evento.area, value = 'Medicina') }}
+                                    {{ option(current_value = evento.area, value = 'Negócios') }}
                                     {{ option(current_value = evento.area, value = 'Química') }}
+                                    {{ option(current_value = evento.area, value = 'Saúde') }}
+                                    {{ option(current_value = evento.area, value = 'Turismo') }}
                                 </select>
                             </div>
                         </div>
