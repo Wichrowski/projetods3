@@ -60,6 +60,7 @@ class Evento(db.Model):
         'Palestra',
         'Curso',
         'Congresso',
+        'Meetup',
         name = 'tipo_evento')
     )
 

@@ -183,4 +183,20 @@ def criar_eventos(db):
         )
     )
 
+    db.session.add(
+        Evento(
+            nome = "Meetup Node.js",
+            tipo = 'Meetup',
+            area = 'Informática',
+            data = data('10/11/2019'),
+            parceiro = Parceiro(
+                nome = "DbServer"
+            ),
+            endereco = Endereco(
+                cidade = cidade("Porto Alegre"),
+                logradouro = "Avenida Ipiranga, 6681, 99A"
+            )
+        )
+    )
+
     db.session.commit()
