@@ -64,10 +64,22 @@ class Evento(db.Model):
     )
 
     area = db.Column(db.Enum(
-        'Informática',
-        'Medicina',
-        'Química',
         'Administração',
+        'Arquitetura',
+        'Arte',
+        'Ciências Sociais',
+        'Comunicação',
+        'Design',
+        'Direito',
+        'Economia',
+        'Educação',
+        'Engenharia',
+        'Gastronomia',
+        'Informática',
+        'Negócios',
+        'Saúde',
+        'Química',
+        'Turismo',
         name = 'area_evento')
     )
 
