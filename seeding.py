@@ -167,4 +167,20 @@ def criar_eventos(db):
         )
     )
 
+    db.session.add(
+        Evento(
+            nome = "Curso de massas",
+            tipo = 'Curso',
+            area = 'Gastronomia',
+            data = data('10/10/2019'),
+            parceiro = Parceiro(
+                nome = "Alho e Oleo Gastronomia"
+            ),
+            endereco = Endereco(
+                cidade = cidade("Porto Alegre"),
+                logradouro = "Avenida Diário de Notícias, 1000"
+            )
+        )
+    )
+
     db.session.commit()
