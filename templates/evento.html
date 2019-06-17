@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="title">{{evento.nome}}</h1>
+<small>{{evento.endereco.cidade.nome}}, {{evento.endereco.cidade.estado.nome}}</small>
+<span class="tag is-primary">{{evento.tipo}}</span>
+<span class="tag is-success">{{evento.area}}</span>
+<small class="formatted-date">{{evento.data}}</small>
+
+{% endblock %}
+
+{% block custom_scripts %}
+<script>
+var datas = document.querySelectorAll('.formatted-date');
+
+datas.forEach(function(campoData) {
+    var dataLegivel = moment(campoData.textContent)
+        .locale('pt-BR')
+        .format('dddd, DD [de] MMMM [de] Y')
+
+    campoData.textContent = dataLegivel;
+})
+</script>
+{% endblock %}

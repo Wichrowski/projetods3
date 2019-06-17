@@ -25,6 +25,15 @@ def login_parceiro():
     return render_template("login_parceiro.html")
 
 
+@app.route("/evento/<id_evento>")
+def evento(id_evento):
+    evento = evento_service.encontrar_por_id(id_evento)
+    return render_template(
+        "evento.html",
+        evento = evento
+    )
+
+
 @app.route("/")
 def eventos():
     return render_template(
