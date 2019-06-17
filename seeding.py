@@ -99,7 +99,8 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Carlos Gomes, 500"
-            )
+            ),
+            descricao = 'Palestra de python'
         )
     )
 
@@ -115,7 +116,8 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("Curitiba"),
                 logradouro = "Av. Pres. Getúlio Vargas, 635"
-            )
+            ),
+            descricao = 'Palestra de Java'
         )
     )
 
@@ -131,7 +133,8 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("Curitiba"),
                 logradouro = "Avenida Doutor Silas Munguba, 1700"
-            )
+            ),
+            descricao = 'Como desenvolver uma aplicação Web com Ruby on Rails'
         )
     )
 
@@ -147,7 +150,8 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("São Paulo"),
                 logradouro = "Avenida Paulista, 1050"
-            )
+            ),
+            descricao = 'Como automatizar o teste de aplicações com Cypress'
         )
     )
 
@@ -163,7 +167,8 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Diário de Notícias, 1000"
-            )
+            ),
+            descricao = 'Congresso sobre Ácido Sulfúrico'
         )
     )
 
@@ -179,7 +184,9 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Diário de Notícias, 1000"
-            )
+            ),
+            descricao = 'Aprenda sobre diferentes tipos de massa na prática,' +
+            ' criando três opções de jantar. '
         )
     )
 
@@ -195,7 +202,8 @@ def criar_eventos(db):
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Ipiranga, 6681, 99A"
-            )
+            ),
+            descricao = 'Evento para falar sobre Node.js'
         )
     )
 

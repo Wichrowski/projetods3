@@ -11,6 +11,7 @@ class EventoService:
     def vazio(self):
         return Evento(
             nome = "",
+            descricao = "",
             data = datetime.today().strftime('%d/%m/%Y'),
             endereco = Endereco()
         )
@@ -34,6 +35,7 @@ class EventoService:
             evento.nome = form['nome']
             evento.area = form['area']
             evento.tipo = form['tipo']
+            evento.descricao = form['descricao']
             evento.data = interpretar_data_form(form)
             evento.endereco.id_cidade = form['id_cidade']
             db.session.commit()
@@ -42,6 +44,7 @@ class EventoService:
                 nome = form['nome'],
                 area = form['area'],
                 tipo = form['tipo'],
+                descricao = form['descricao'],
                 data = interpretar_data_form(form),
                 endereco = Endereco(
                     id_cidade = form['id_cidade']

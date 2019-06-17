@@ -49,7 +49,11 @@
                         </div>
                         <div class="media-content">
                             <div class="content">
-                                <p class="subtitle">{{evento.nome}}</p>
+                                <p class="subtitle">
+                                    <a href="{{url_for('evento', id_evento = evento.id)}}">
+                                        {{evento.nome}}
+                                    </a>
+                                </p>
                                 <p class="heading">{{evento.parceiro.nome}}</p>
                                 <p>
                                     <small class="formatted-date">{{evento.data}}</small>

@@ -55,6 +55,7 @@ class Evento(db.Model):
     id = db.Column(db.Integer(), primary_key = True)
     nome = db.Column(db.String(), unique = True)
     data = db.Column(db.Date())
+    descricao = db.Column(db.String(), nullable = False)
     tipo = db.Column(db.Enum(
         'Workshop',
         'Palestra',
