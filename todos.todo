@@ -1,4 +1,6 @@
 - [ ] Adicionar descricao ao evento
+- [ ] Adicionar imagem ao evento
+- [ ] Visualizar eventos
 - [ ] Validar formulário de cadastro
   - [ ] Nome nao vazio
   - [ ] Data obrigatoria

@@ -33,11 +33,6 @@ def eventos():
     )
 
 
-@app.route("/meus-eventos")
-def meu_eventos():
-    return render_template("meus_eventos.html")
-
-
 @app.route("/evento/cadastrar")
 def cadastro_evento():
     return render_template(
@@ -60,11 +55,6 @@ def editar_evento(id_evento):
 def salvar_cadastro_evento():
     evento_service.salvar(request.form)
     return redirect(url_for('eventos'))
-
-
-@app.route("/evento-especifico")
-def evento_especifico():
-    return render_template("evento_especifico.html")
 
 
 @app.route("/evento/<id_evento>/deletar", methods=["POST"])
