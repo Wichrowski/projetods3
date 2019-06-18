@@ -1,10 +1,22 @@
-- [ ] Adicionar descricao ao evento
+- [ ] Filtros
+  - [ ] Validar filtros
+  - [ ] Filtrar por Área
+  - [ ] Filtrar por Parceiro
+  - [ ] Filtrar por Cidade
+  - [ ] Filtrar por Estado
+  - [X] Como criar queries com where
+  - [X] Como compor where com multiplos criterios
+  - [X] Preencher filtros ativos
+  - [X] Filtrar por Tipo
 - [ ] Adicionar imagem ao evento
-- [ ] Visualizar eventos
 - [ ] Validar formulário de cadastro
   - [ ] Nome nao vazio
   - [ ] Data obrigatoria
   - [ ] Data no formato valido
+  - [ ] Descricao obrigatoria
+  - [ ] Validar selects
+    - [ ] Tipo
+    - [ ] Area
 - [ ] Logradouro no form
 - [ ] Exibir logradouro na pagina do evento
 - [ ] Seeding de usuario e parceiro
@@ -46,3 +58,5 @@
   - [X] Consertar preenchimento de data no form
   - [X] Como atualizar endereço?
   - [X] Manter opcoes selects (atributo option selected)
+- [X] Adicionar descricao ao evento
+- [X] Visualizar eventos

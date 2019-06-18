@@ -1,3 +1,4 @@
+import enum
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -48,6 +49,43 @@ class Parceiro(db.Model):
     nome = db.Column(db.String(), unique = True)
 
 
+def valores_enum(enum_alvo):
+    return [
+        member.value
+        for name, member
+        in enum_alvo.__members__.items()
+    ]
+
+
+class TipoEvento(enum.Enum):
+
+    WORKSHOP = 'Workshop'
+    PALESTRA = 'Palestra'
+    CURSO = 'Curso'
+    CONGRESSO = 'Congresso'
+    MEETUP = 'Meetup'
+
+
+class AreaEvento(enum.Enum):
+
+    ADMINISTRACAO = 'Administração'
+    ARQUITETURA = 'Arquitetura'
+    ARTE = 'Arte'
+    CIENCIAS_SOCIAIS = 'Ciências Sociais'
+    COMUNICACAO = 'Comunicação'
+    DESIGN = 'Design'
+    DIREITO = 'Direito'
+    ECONOMIA = 'Economia'
+    EDUCACAO = 'Educação'
+    ENGENHARIA = 'Engenharia'
+    GASTRONOMIA = 'Gastronomia'
+    INFORMATICA = 'Informática'
+    NEGOCIOS = 'Negócios'
+    SAUDE = 'Saúde'
+    QUIMICA = 'Química'
+    TURISMO = 'Turismo'
+
+
 class Evento(db.Model):
 
     __tablename__ = 'evento'
@@ -56,34 +94,9 @@ class Evento(db.Model):
     nome = db.Column(db.String(), unique = True)
     data = db.Column(db.Date())
     descricao = db.Column(db.String(), nullable = False)
-    tipo = db.Column(db.Enum(
-        'Workshop',
-        'Palestra',
-        'Curso',
-        'Congresso',
-        'Meetup',
-        name = 'tipo_evento')
-    )
 
-    area = db.Column(db.Enum(
-        'Administração',
-        'Arquitetura',
-        'Arte',
-        'Ciências Sociais',
-        'Comunicação',
-        'Design',
-        'Direito',
-        'Economia',
-        'Educação',
-        'Engenharia',
-        'Gastronomia',
-        'Informática',
-        'Negócios',
-        'Saúde',
-        'Química',
-        'Turismo',
-        name = 'area_evento')
-    )
+    tipo = db.Column(db.Enum(*valores_enum(TipoEvento), name = 'tipo_evento'))
+    area = db.Column(db.Enum(*valores_enum(AreaEvento), name = 'area_evento'))
 
     parceiro = db.relationship('Parceiro')
     endereco = db.relationship('Endereco')

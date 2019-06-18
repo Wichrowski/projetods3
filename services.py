@@ -1,4 +1,5 @@
-from models import db, Evento, Cidade, Endereco
+from models import db, TipoEvento, AreaEvento, Evento, Cidade,\
+    Endereco, valores_enum
 from datetime import datetime
 
 
@@ -16,11 +17,20 @@ class EventoService:
             endereco = Endereco()
         )
 
+    def areas_de_evento(self):
+        return valores_enum(AreaEvento)
+
+    def tipos_de_evento(self):
+        return valores_enum(TipoEvento)
+
     def encontrar_por_id(self, id):
         return Evento.query.filter_by(id = id).one()
 
     def buscar_todos(self):
         return Evento.query.all()
+
+    def buscar_por(self, filtros):
+        return Evento.query.filter_by(**filtros).all()
 
     def deletar(self, id_evento):
         Evento.query.filter_by(id = id_evento).delete()

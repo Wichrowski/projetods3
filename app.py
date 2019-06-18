@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, url_for, redirect
 from flask_migrate import Migrate
 
-from models import db, Evento
+from models import db
 from services import evento_service, cidade_service
 
 import seeding
@@ -34,11 +34,31 @@ def evento(id_evento):
     )
 
 
+def parametro_de_filtro(nome):
+    return (nome, request.args.get(nome))
+
+
+def filtro_ausente(param_tuple):
+    return param_tuple[1] is not None
+
+
 @app.route("/")
 def eventos():
+    filtros_ativos = dict(
+        filter(filtro_ausente, [
+            parametro_de_filtro('tipo')
+        ])
+    )
+
+    eventos = evento_service.buscar_todos() \
+        if len(filtros_ativos) == 0 \
+        else evento_service.buscar_por(filtros_ativos)
+
     return render_template(
         "eventos.html",
-        eventos=evento_service.buscar_todos()
+        eventos = eventos,
+        filtros_ativos = filtros_ativos,
+        tipos_de_evento = evento_service.tipos_de_evento()
     )
 
 
