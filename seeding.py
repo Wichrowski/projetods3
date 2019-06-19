@@ -24,6 +24,7 @@ def cidade(nome):
 def criar_eventos(db):
     Evento.query.delete()
     Parceiro.query.delete()
+    Usuario.query.delete()
     Endereco.query.delete()
     Cidade.query.delete()
     Estado.query.delete()
@@ -95,7 +96,11 @@ def criar_eventos(db):
             area = 'Informática',
             data = data('04/06/2019'),
             parceiro = Parceiro(
-                nome = "Python Foundation"
+                nome = "Python Foundation",
+                usuario = Usuario(
+                    apelido = 'py_foundation',
+                    senha = 'py_foundation'
+                )
             ),
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
@@ -112,7 +117,11 @@ def criar_eventos(db):
             area = 'Informática',
             data = data('04/07/2019'),
             parceiro = Parceiro(
-                nome = "Oracle"
+                nome = "Oracle",
+                usuario = Usuario(
+                    apelido = 'oracle',
+                    senha = 'oracle'
+                )
             ),
             endereco = Endereco(
                 cidade = cidade("Curitiba"),
@@ -129,7 +138,11 @@ def criar_eventos(db):
             area = 'Informática',
             data = data('05/08/2019'),
             parceiro = Parceiro(
-                nome = "Plataformatec"
+                nome = "Plataformatec",
+                usuario = Usuario(
+                    apelido = 'plataformatec',
+                    senha = 'plataformatec'
+                )
             ),
             endereco = Endereco(
                 cidade = cidade("Curitiba"),
@@ -143,7 +156,11 @@ def criar_eventos(db):
         Evento(
             nome = "Testes funcionais com Cypress",
             parceiro = Parceiro(
-                nome = "Alura"
+                nome = "Alura",
+                usuario = Usuario(
+                    apelido = 'alura',
+                    senha = 'alura'
+                )
             ),
             tipo = 'Curso',
             area = 'Informática',
@@ -163,7 +180,11 @@ def criar_eventos(db):
             area = 'Química',
             data = data('10/09/2019'),
             parceiro = Parceiro(
-                nome = "Instituto Nacional de Química"
+                nome = "Instituto Nacional de Química",
+                usuario = Usuario(
+                    apelido = 'instituto_quimica',
+                    senha = 'instituto_quimica'
+                )
             ),
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
@@ -180,7 +201,11 @@ def criar_eventos(db):
             area = 'Gastronomia',
             data = data('10/10/2019'),
             parceiro = Parceiro(
-                nome = "Alho e Oleo Gastronomia"
+                nome = "Alho e Oleo Gastronomia",
+                usuario = Usuario(
+                    apelido = 'alho_oleo',
+                    senha = 'alho_oleo'
+                )
             ),
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
@@ -198,22 +223,17 @@ def criar_eventos(db):
             area = 'Informática',
             data = data('10/11/2019'),
             parceiro = Parceiro(
-                nome = "DbServer"
+                nome = "DbServer",
+                usuario = Usuario(
+                    apelido = 'db_server',
+                    senha = 'db_server'
+                )
             ),
             endereco = Endereco(
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Ipiranga, 6681, 99A"
             ),
             descricao = 'Evento para falar sobre Node.js'
-        )
-    )
-
-    db.session.commit()
-
-    db.session.add(
-        Usuario(
-            apelido = 'admin',
-            senha = 'admin'
         )
     )
 

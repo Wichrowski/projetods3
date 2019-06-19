@@ -1,4 +1,4 @@
-from models import TipoEvento, AreaEvento, Cidade
+from models import TipoEvento, AreaEvento, Cidade, Parceiro
 
 
 class Filtros:
@@ -12,7 +12,8 @@ class Filtros:
             filter(self._filtro_ausente, [
                 self._parametro_de_filtro('tipo_de_evento'),
                 self._parametro_de_filtro('area_de_evento'),
-                self._parametro_de_filtro('cidade')
+                self._parametro_de_filtro('cidade'),
+                self._parametro_de_filtro('parceiro')
             ])
         )
 
@@ -36,6 +37,12 @@ class Filtros:
             for cidade in Cidade.query.all()
         ]
 
+    def parceiros(self):
+        return [
+            OpcaoDeFiltro(parceiro.nome, str(parceiro.id))
+            for parceiro in Parceiro.query.all()
+        ]
+
     def aplicar(self, eventos):
         return [
             evento
@@ -44,6 +51,7 @@ class Filtros:
             if self._match_tipo(evento)
             and self._match_area(evento)
             and self._match_cidade(evento)
+            and self._match_parceiro(evento)
         ]
 
     def _match_tipo(self, evento):
@@ -63,6 +71,12 @@ class Filtros:
             return True
 
         return evento.endereco.cidade.id == int(self.filtros_ativos().get('cidade'))
+
+    def _match_parceiro(self, evento):
+        if self.filtros_ativos().get('parceiro') is None:
+            return True
+
+        return evento.parceiro.id == int(self.filtros_ativos().get('parceiro'))
 
     def _parametro_de_filtro(self, nome):
         return (nome, self.request.args.get(nome))

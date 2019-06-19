@@ -24,7 +24,11 @@
     <div class="container">
         <form id="filtros" action="{{url_for('eventos')}}" method="GET">
             <div class="level">
-                <!-- {{filter_select(label = 'Parceiro', name = 'parceiro', options = ['With Options'])}} -->
+                {{filter_select(
+                    label = 'Parceiro',
+                    name = 'parceiro',
+                    active_option = filtros.filtros_ativos().parceiro,
+                    options = filtros.parceiros())}}
                 {{filter_select(
                     label = 'Tipo de Evento',
                     name = 'tipo_de_evento',
@@ -87,6 +91,7 @@
                                 </div>
                             </nav>
                         </div>
+                        {% if evento.parceiro.id_usuario == current_user.id: %}
                         <div class="media-right">
                             <form action="/evento/{{evento.id}}/deletar" method="post">
                                 <button type="submit">
@@ -103,6 +108,8 @@
                                 </button>
                             </a>
                         </div>
+                        {% endif %}
+
                     </article>
                 </div>
             </div>

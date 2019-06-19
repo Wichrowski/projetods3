@@ -1,15 +1,15 @@
 - [ ] Corrigir deploy Heroku
-- [ ] Login
-  - [ ] Logout na navbar
-  - [ ] Linkar usuario com parceiro
-  - [ ] Toggle dos controles dos eventos
-  - [ ] Bloquear paginas de cadastro e edicao de eventos
-  - [X] Logout
 - [ ] Relacionar parceiro a um novo evento
-- [ ] Seeding de usuario e parceiro
+- [ ] Login
+  - [ ] Implementar next
+  - [X] Logout
+  - [X] Login na navbar
+  - [X] Logout na navbar
+  - [X] Linkar usuario com parceiro
+  - [X] Toggle dos controles dos eventos
+  - [X] Bloquear paginas de cadastro e edicao de eventos
 - [ ] Filtros
-  - [ ] Validar filtros
-  - [ ] Filtrar por Parceiro
+  - [ ] Filtrar ao alterar um select (remover botao filtrar)
   - [ ] Filtrar por Estado
   - [X] Como criar queries com where
   - [X] Como compor where com multiplos criterios
@@ -18,7 +18,12 @@
   - [X] Filtrar por Área
   - [X] Filtrar por Cidade
   - [X] Filtrar por Tipo
+  - [X] Filtrar por Parceiro
 - [ ] Adicionar imagem ao evento
+- [ ] Validar valores recebidos dos filtros
+- [ ] Validar autorizacao usuario ao deletar
+- [ ] Validar autorizacao usuario ao salvar
+- [ ] Validar autorizacao usuario ao salvar edicao
 - [ ] Validar formulário de cadastro
   - [ ] Nome nao vazio
   - [ ] Data obrigatoria
@@ -28,6 +33,7 @@
     - [ ] Tipo
     - [ ] Area
 - [ ] Logradouro no form
+- [ ] SqlAlchemy Cascade delete no seeding
 - [ ] Exibir logradouro na pagina do evento
 - [ ] Mensagem confirmando deleção
 - [ ] Mensagem deleção com sucesso
@@ -67,3 +73,4 @@
   - [X] Manter opcoes selects (atributo option selected)
 - [X] Adicionar descricao ao evento
 - [X] Visualizar eventos
+- [X] Seeding de usuario e parceiro

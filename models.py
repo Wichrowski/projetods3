@@ -42,12 +42,27 @@ class Endereco(db.Model):
     )
 
 
+class Usuario(db.Model, UserMixin):
+    __tablename__ = 'usuario'
+
+    id = db.Column(db.Integer(), primary_key = True)
+    apelido = db.Column(db.String(), unique = True)
+    senha = db.Column(db.String(), unique = True)
+
+
 class Parceiro(db.Model):
 
     __tablename__ = 'parceiro'
 
     id = db.Column(db.Integer(), primary_key = True)
     nome = db.Column(db.String(), unique = True)
+
+    usuario = db.relationship('Usuario')
+
+    id_usuario = db.Column(
+        db.Integer(),
+        db.ForeignKey('usuario.id')
+    )
 
 
 def valores_enum(enum_alvo):
@@ -94,7 +109,7 @@ class Evento(db.Model):
     id = db.Column(db.Integer(), primary_key = True)
     nome = db.Column(db.String(), unique = True)
     data = db.Column(db.Date())
-    descricao = db.Column(db.String(), nullable = False)
+    descricao = db.Column(db.String(), nullable = True)
 
     tipo = db.Column(db.Enum(*valores_enum(TipoEvento), name = 'tipo_evento'))
     area = db.Column(db.Enum(*valores_enum(AreaEvento), name = 'area_evento'))
@@ -113,9 +128,3 @@ class Evento(db.Model):
     )
 
 
-class Usuario(db.Model, UserMixin):
-    __tablename__ = 'usuario'
-
-    id = db.Column(db.Integer(), primary_key = True)
-    apelido = db.Column(db.String(), unique = True)
-    senha = db.Column(db.String(), unique = True)

@@ -23,7 +23,7 @@ import seeding
 app = Flask(__name__)
 
 app.config.from_object("config.Config")
-app.secret_key = 'secret sauce!'
+app.secret_key = 'secret sauce!!'
 
 db.init_app(app)
 
@@ -70,6 +70,7 @@ def eventos():
 
 
 @app.route("/evento/cadastrar")
+@login_required
 def cadastro_evento():
     return render_template(
         "cadastrar_evento.html",
