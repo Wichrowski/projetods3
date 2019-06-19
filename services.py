@@ -1,5 +1,13 @@
-from models import db, TipoEvento, AreaEvento, Evento, Cidade,\
-    Endereco, valores_enum
+from models import (
+    db,
+    TipoEvento,
+    AreaEvento,
+    Evento,
+    Cidade,
+    Endereco,
+    Parceiro,
+    valores_enum
+)
 from datetime import datetime
 
 
@@ -48,6 +56,7 @@ class EventoService:
             evento.descricao = form['descricao']
             evento.data = interpretar_data_form(form)
             evento.endereco.id_cidade = form['id_cidade']
+            evento.id_parceiro = form['id_parceiro']
             db.session.commit()
         else:
             novo_evento = Evento(
@@ -58,7 +67,8 @@ class EventoService:
                 data = interpretar_data_form(form),
                 endereco = Endereco(
                     id_cidade = form['id_cidade']
-                )
+                ),
+                id_parceiro = form['id_parceiro']
             )
 
             db.session.add(novo_evento)
@@ -70,5 +80,13 @@ class CidadeService:
         return Cidade.query.all()
 
 
+class ParceiroService:
+    def get_parceiro_logado(self, current_user):
+        return Parceiro.query.filter_by(
+            id_usuario = current_user.id
+        ).one()
+
+
 cidade_service = CidadeService()
 evento_service = EventoService()
+parceiro_service = ParceiroService()

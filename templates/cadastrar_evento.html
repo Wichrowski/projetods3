@@ -21,7 +21,7 @@
 
     <div class="columns">
         <div class="column is-three-fifths is-offset-one-fifth">
-            <h1 class="title">Cadastrar Evento</h1>
+            <h1 class="title">Dados do Evento</h1>
         </div>
     </div>
 
@@ -29,6 +29,10 @@
         <div class="column is-three-fifths is-offset-one-fifth">
             <form action="{{url_for('salvar_cadastro_evento')}}" method="post">
                 <input type="hidden" name="id" value="{{evento.id}}"/>
+                <input type="hidden" name="id_parceiro" value="{{parceiro.id}}"/>
+                <div class="field">
+                    <label class="label" for="nome">Parceiro: {{parceiro.nome}}</label>
+                </div>
                 <div class="field">
                     <label class="label" for="nome">Nome </label>
                     <div class="control">

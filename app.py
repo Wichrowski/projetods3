@@ -15,7 +15,11 @@ from flask_login import (
 )
 
 from models import db, Usuario
-from services import evento_service, cidade_service
+from services import (
+    evento_service,
+    cidade_service,
+    parceiro_service
+)
 from filtros import Filtros
 
 import seeding
@@ -23,7 +27,7 @@ import seeding
 app = Flask(__name__)
 
 app.config.from_object("config.Config")
-app.secret_key = 'secret sauce!!'
+app.secret_key = 'secret sauce!'
 
 db.init_app(app)
 
@@ -75,26 +79,33 @@ def cadastro_evento():
     return render_template(
         "cadastrar_evento.html",
         evento = evento_service.vazio(),
+        parceiro = parceiro_service
+        .get_parceiro_logado(current_user),
         opcoes_cidades = cidade_service.todas()
     )
 
 
 @app.route("/evento/<id_evento>/editar")
+@login_required
 def editar_evento(id_evento):
     return render_template(
         "cadastrar_evento.html",
         evento = evento_service.encontrar_por_id(id_evento),
+        parceiro = parceiro_service
+        .get_parceiro_logado(current_user),
         opcoes_cidades = cidade_service.todas()
     )
 
 
 @app.route("/evento/cadastrar", methods=["POST"])
+@login_required
 def salvar_cadastro_evento():
     evento_service.salvar(request.form)
     return redirect(url_for('eventos'))
 
 
 @app.route("/evento/<id_evento>/deletar", methods=["POST"])
+@login_required
 def deletar_evento(id_evento):
     evento_service.deletar(id_evento)
     return redirect(url_for('eventos'))
