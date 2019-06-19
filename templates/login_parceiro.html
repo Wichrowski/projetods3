@@ -61,18 +61,15 @@
 
           </div>
 
+          <form action="{{url_for('efetuar_login')}}" method="post">
           <div class="container">
-
             <div class="columns">
               <div class="column is-4 is-offset-4">
 
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-success" type="text" placeholder="Usuário">
+                  <input name="apelido" class="input is-success" type="text" placeholder="Usuário">
                   <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
-                  </span>
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
                   </span>
                 </div>
 
@@ -88,7 +85,7 @@
 
                 <div class="field">
                   <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Senha">
+                    <input name="senha" class="input" type="password" placeholder="Senha">
                     <span class="icon is-small is-left">
                       <i class="fas fa-lock"></i>
                     </span>
@@ -107,7 +104,7 @@
 
                 <div class="field">
                   <p class="control">
-                    <button class="button is-success">
+                    <button class="button is-success" type="submit">
                       Login
                     </button>
                   </p>
@@ -117,6 +114,7 @@
             </div>
 
           </div>
+          </form>
 
         </div>
       </div>

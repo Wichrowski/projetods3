@@ -1,5 +1,10 @@
 - [ ] Corrigir deploy Heroku
 - [ ] Login
+  - [ ] Logout na navbar
+  - [ ] Linkar usuario com parceiro
+  - [ ] Toggle dos controles dos eventos
+  - [ ] Bloquear paginas de cadastro e edicao de eventos
+  - [X] Logout
 - [ ] Relacionar parceiro a um novo evento
 - [ ] Seeding de usuario e parceiro
 - [ ] Filtros

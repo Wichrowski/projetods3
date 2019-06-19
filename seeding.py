@@ -4,7 +4,8 @@ from models import (
     Evento,
     Estado,
     Endereco,
-    Parceiro
+    Parceiro,
+    Usuario
 )
 
 
@@ -204,6 +205,15 @@ def criar_eventos(db):
                 logradouro = "Avenida Ipiranga, 6681, 99A"
             ),
             descricao = 'Evento para falar sobre Node.js'
+        )
+    )
+
+    db.session.commit()
+
+    db.session.add(
+        Usuario(
+            apelido = 'admin',
+            senha = 'admin'
         )
     )
 

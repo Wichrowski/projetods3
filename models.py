@@ -1,5 +1,6 @@
 import enum
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 
 db = SQLAlchemy()
 
@@ -110,3 +111,11 @@ class Evento(db.Model):
         db.Integer(),
         db.ForeignKey('endereco.id')
     )
+
+
+class Usuario(db.Model, UserMixin):
+    __tablename__ = 'usuario'
+
+    id = db.Column(db.Integer(), primary_key = True)
+    apelido = db.Column(db.String(), unique = True)
+    senha = db.Column(db.String(), unique = True)

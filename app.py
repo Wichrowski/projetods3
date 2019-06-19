@@ -1,7 +1,20 @@
-from flask import Flask, request, render_template, url_for, redirect
+from flask import (
+    Flask,
+    request,
+    render_template,
+    url_for,
+    redirect
+)
 from flask_migrate import Migrate
+from flask_login import (
+    LoginManager,
+    login_user,
+    login_required,
+    logout_user,
+    current_user
+)
 
-from models import db
+from models import db, Usuario
 from services import evento_service, cidade_service
 from filtros import Filtros
 
@@ -10,20 +23,27 @@ import seeding
 app = Flask(__name__)
 
 app.config.from_object("config.Config")
+app.secret_key = 'secret sauce!'
 
 db.init_app(app)
 
 migrate = Migrate(app, db)
 
+login_manager = LoginManager()
+
+login_manager.init_app(app)
+
+login_manager.login_view = 'form_login'
+
+
+@login_manager.user_loader
+def get_user(id):
+    return Usuario.query.filter_by(id = int(id)).one()
+
 
 @app.cli.command(help="Executa o seeding com dados de teste")
 def seed():
     seeding.criar_eventos(db)
-
-
-@app.route("/pagina-inicial")
-def login_parceiro():
-    return render_template("login_parceiro.html")
 
 
 @app.route("/evento/<id_evento>")
@@ -33,14 +53,6 @@ def evento(id_evento):
         "evento.html",
         evento = evento
     )
-
-
-def parametro_de_filtro(nome):
-    return (nome, request.args.get(nome))
-
-
-def filtro_ausente(param_tuple):
-    return param_tuple[1] is not None
 
 
 @app.route("/")
@@ -54,7 +66,6 @@ def eventos():
         "eventos.html",
         eventos = filtros.aplicar(eventos),
         filtros = filtros
-        # tipos_de_evento = evento_service.tipos_de_evento()
     )
 
 
@@ -86,3 +97,32 @@ def salvar_cadastro_evento():
 def deletar_evento(id_evento):
     evento_service.deletar(id_evento)
     return redirect(url_for('eventos'))
+
+
+@app.route('/login')
+def form_login():
+    return render_template('login_parceiro.html')
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('eventos'))
+
+
+@app.route('/login', methods = ['POST'])
+def efetuar_login():
+    apelido = request.form['apelido']
+    senha = request.form['senha']
+
+    usuario = Usuario.query.filter_by(
+        apelido = apelido,
+        senha = senha
+    ).first()
+
+    if usuario is None:
+        return render_template('login_parceiro.html')
+
+    login_user(usuario)
+    return redirect(url_for('eventos'))
+
