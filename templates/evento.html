@@ -2,12 +2,30 @@
 
 {% block content %}
 
-<h1 class="title">{{evento.nome}}</h1>
-<small>{{evento.endereco.cidade.nome}}, {{evento.endereco.cidade.estado.nome}}</small>
-<span class="tag is-primary">{{evento.tipo}}</span>
-<span class="tag is-success">{{evento.area}}</span>
-<small class="formatted-date">{{evento.data}}</small>
-<p>{{evento.descricao}}</p>
+<section class="hero is-large is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title is-1">
+                {{evento.nome}}
+            </h1>
+            <h2 class="subtitle is-2">
+                {{evento.parceiro.nome}}
+            </h2>
+            <h3 class="subtitle is-5">
+                {{evento.endereco.cidade.nome}}
+                {% if evento.endereco.cidade.estado.nome != evento.endereco.cidade.nome: %}
+                , {{evento.endereco.cidade.estado.nome}}
+                {%endif%}
+            </h3>
+            <p class="subtitle is-5 formatted-date">{{evento.data}}</p>
+            <div class="content">
+                {{evento.descricao}}
+            </div>
+            <span class="tag is-primary">{{evento.tipo}}</span>
+            <span class="tag is-success">{{evento.area}}</span>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
 
@@ -15,7 +33,7 @@
 <script>
 var datas = document.querySelectorAll('.formatted-date');
 
-datas.forEach(function(campoData) {
+    datas.forEach(function(campoData) {
     var dataLegivel = moment(campoData.textContent)
         .locale('pt-BR')
         .format('dddd, DD [de] MMMM [de] Y')
