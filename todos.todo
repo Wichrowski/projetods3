@@ -1,12 +1,17 @@
+- [ ] Corrigir deploy Heroku
+- [ ] Login
+- [ ] Relacionar parceiro a um novo evento
+- [ ] Seeding de usuario e parceiro
 - [ ] Filtros
   - [ ] Validar filtros
-  - [ ] Filtrar por Área
   - [ ] Filtrar por Parceiro
-  - [ ] Filtrar por Cidade
   - [ ] Filtrar por Estado
   - [X] Como criar queries com where
   - [X] Como compor where com multiplos criterios
   - [X] Preencher filtros ativos
+  - [X] Filtrar por tabelas agregadas
+  - [X] Filtrar por Área
+  - [X] Filtrar por Cidade
   - [X] Filtrar por Tipo
 - [ ] Adicionar imagem ao evento
 - [ ] Validar formulário de cadastro
@@ -19,11 +24,8 @@
     - [ ] Area
 - [ ] Logradouro no form
 - [ ] Exibir logradouro na pagina do evento
-- [ ] Seeding de usuario e parceiro
 - [ ] Mensagem confirmando deleção
 - [ ] Mensagem deleção com sucesso
-- [ ] Relacionar parceiro a um novo evento
-- [ ] Login
 - [ ] Ajustar altura dos cards evento
 - [ ] Readme
 - [ ] Configs por ambiente?

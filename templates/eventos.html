@@ -9,7 +9,7 @@
                 <select name="{{name}}">
                     <option value="">Selecione</option>
                     {% for option in options %}
-                      <option {{"selected" if option == active_option else ""}}>{{option}}</option>
+                    <option {{"selected" if option.valor == active_option}} value = "{{option.valor}}">{{option.nome}}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -27,12 +27,19 @@
                 <!-- {{filter_select(label = 'Parceiro', name = 'parceiro', options = ['With Options'])}} -->
                 {{filter_select(
                     label = 'Tipo de Evento',
-                    name = 'tipo',
-                    active_option = filtros_ativos.get('tipo'),
-                    options = tipos_de_evento)}}
-                <!-- {{filter_select(label = 'Área', name = 'area', options = ['With Options'])}} -->
-                <!-- {{filter_select(label = 'Cidade', name = 'cidade', options = ['With Options'])}} -->
-                <!-- {{filter_select(label = 'Estado', name = 'estado', options = ['With Options'])}} -->
+                    name = 'tipo_de_evento',
+                    active_option = filtros.filtros_ativos().tipo_de_evento,
+                    options = filtros.tipos_de_evento())}}
+                {{filter_select(
+                    label = 'Área do Evento',
+                    name = 'area_de_evento',
+                    active_option = filtros.filtros_ativos().area_de_evento,
+                    options = filtros.areas_de_evento())}}
+                {{filter_select(
+                    label = 'Cidade',
+                    name = 'cidade',
+                    active_option = filtros.filtros_ativos().cidade,
+                    options = filtros.cidades())}}
                 <div class="level-item">
                     <button type="submit" class="button">Filtrar</button>
                     <a href="{{url_for('eventos')}}">Limpar</a>

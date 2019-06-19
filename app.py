@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 
 from models import db
 from services import evento_service, cidade_service
+from filtros import Filtros
 
 import seeding
 
@@ -44,21 +45,16 @@ def filtro_ausente(param_tuple):
 
 @app.route("/")
 def eventos():
-    filtros_ativos = dict(
-        filter(filtro_ausente, [
-            parametro_de_filtro('tipo')
-        ])
-    )
 
-    eventos = evento_service.buscar_todos() \
-        if len(filtros_ativos) == 0 \
-        else evento_service.buscar_por(filtros_ativos)
+    filtros = Filtros(request)
+
+    eventos = evento_service.buscar_todos()
 
     return render_template(
         "eventos.html",
-        eventos = eventos,
-        filtros_ativos = filtros_ativos,
-        tipos_de_evento = evento_service.tipos_de_evento()
+        eventos = filtros.aplicar(eventos),
+        filtros = filtros
+        # tipos_de_evento = evento_service.tipos_de_evento()
     )
 
 
