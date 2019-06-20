@@ -57,6 +57,7 @@ class EventoService:
             evento.data = interpretar_data_form(form)
             evento.endereco.id_cidade = form['id_cidade']
             evento.id_parceiro = form['id_parceiro']
+            evento.url_imagem = form['url_imagem']
             db.session.commit()
         else:
             novo_evento = Evento(
@@ -64,6 +65,7 @@ class EventoService:
                 area = form['area'],
                 tipo = form['tipo'],
                 descricao = form['descricao'],
+                url_imagem = form['url_imagem'],
                 data = interpretar_data_form(form),
                 endereco = Endereco(
                     id_cidade = form['id_cidade']

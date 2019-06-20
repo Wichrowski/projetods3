@@ -27,9 +27,10 @@
 
     <div class="columns">
         <div class="column is-three-fifths is-offset-one-fifth">
-            <form action="{{url_for('salvar_cadastro_evento')}}" method="post">
+            <form action="{{url_for('salvar_cadastro_evento')}}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="{{evento.id}}"/>
                 <input type="hidden" name="id_parceiro" value="{{parceiro.id}}"/>
+                <input type="hidden" id="url-imagem" name="url_imagem" value="/static/placeholder.png">
                 <div class="field">
                     <label class="label" for="nome">Parceiro: {{parceiro.nome}}</label>
                 </div>
@@ -120,6 +121,14 @@
                     </div>
                 </div>
 
+                <div class="field">
+                    <label class="label">Imagem</label>
+                    <div class="control">
+                        <input type="file" name="imagem" id="ibagem" />
+                    </div>
+                </div>
+
+
                 <div class="control">
                     <button class="button is-primary">Salvar</button>
                 </div>
@@ -133,5 +142,54 @@
 <script>
     var picker = datePicker('#seletor-data');
     picker.setMoment(moment('{{evento.data}}'));
+
+    (function() {
+        document.getElementById("ibagem").onchange = function() {
+            var files = document.getElementById("ibagem").files;
+            var file = files[0];
+
+            getSignedRequest(file);
+        };
+
+        function getSignedRequest(file){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/sign_s3?file_name="+file.name+"&file_type="+file.type);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status === 200){
+                        var response = JSON.parse(xhr.responseText);
+                        uploadFile(file, response.data, response.url);
+                    }
+                    else{
+                        alert("Could not get signed URL.");
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        function uploadFile(file, s3Data, url){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", s3Data.url);
+
+            var postData = new FormData();
+            for(key in s3Data.fields){
+                postData.append(key, s3Data.fields[key]);
+            }
+            postData.append('file', file);
+
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4){
+                    if(xhr.status === 200 || xhr.status === 204){
+                        document.getElementById("url-imagem").value = url;
+                    }
+                    else{
+                        alert("Could not upload file.");
+                    }
+                }
+            };
+            xhr.send(postData);
+        }
+    })();
 </script>
 {% endblock %}

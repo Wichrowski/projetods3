@@ -110,6 +110,7 @@ class Evento(db.Model):
     nome = db.Column(db.String(), unique = True)
     data = db.Column(db.Date())
     descricao = db.Column(db.String(), nullable = True)
+    url_imagem = db.Column(db.String(), nullable = True)
 
     tipo = db.Column(db.Enum(*valores_enum(TipoEvento), name = 'tipo_evento'))
     area = db.Column(db.Enum(*valores_enum(AreaEvento), name = 'area_evento'))

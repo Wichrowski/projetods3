@@ -106,7 +106,8 @@ def criar_eventos(db):
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Carlos Gomes, 500"
             ),
-            descricao = 'Palestra de python'
+            descricao = 'Palestra de python',
+            url_imagem = '/static/placeholder.png'
         )
     )
 
@@ -127,7 +128,8 @@ def criar_eventos(db):
                 cidade = cidade("Curitiba"),
                 logradouro = "Av. Pres. Getúlio Vargas, 635"
             ),
-            descricao = 'Palestra de Java'
+            descricao = 'Palestra de Java',
+            url_imagem = '/static/placeholder.png'
         )
     )
 
@@ -148,7 +150,8 @@ def criar_eventos(db):
                 cidade = cidade("Curitiba"),
                 logradouro = "Avenida Doutor Silas Munguba, 1700"
             ),
-            descricao = 'Como desenvolver uma aplicação Web com Ruby on Rails'
+            descricao = 'Como desenvolver uma aplicação Web com Ruby on Rails',
+            url_imagem = '/static/placeholder.png'
         )
     )
 
@@ -169,7 +172,8 @@ def criar_eventos(db):
                 cidade = cidade("São Paulo"),
                 logradouro = "Avenida Paulista, 1050"
             ),
-            descricao = 'Como automatizar o teste de aplicações com Cypress'
+            descricao = 'Como automatizar o teste de aplicações com Cypress',
+            url_imagem = '/static/placeholder.png'
         )
     )
 
@@ -190,7 +194,8 @@ def criar_eventos(db):
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Diário de Notícias, 1000"
             ),
-            descricao = 'Congresso sobre Ácido Sulfúrico'
+            descricao = 'Congresso sobre Ácido Sulfúrico',
+            url_imagem = '/static/placeholder.png'
         )
     )
 
@@ -212,7 +217,9 @@ def criar_eventos(db):
                 logradouro = "Avenida Diário de Notícias, 1000"
             ),
             descricao = 'Aprenda sobre diferentes tipos de massa na prática,' +
-            ' criando três opções de jantar. '
+            ' criando três opções de jantar. ',
+            url_imagem = '/static/placeholder.png'
+
         )
     )
 
@@ -233,7 +240,8 @@ def criar_eventos(db):
                 cidade = cidade("Porto Alegre"),
                 logradouro = "Avenida Ipiranga, 6681, 99A"
             ),
-            descricao = 'Evento para falar sobre Node.js'
+            descricao = 'Evento para falar sobre Node.js',
+            url_imagem = '/static/placeholder.png'
         )
     )
 

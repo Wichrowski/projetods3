@@ -1,8 +1,12 @@
+import boto3
+import os
+
 from flask import (
     Flask,
     request,
     render_template,
     url_for,
+    json,
     redirect
 )
 from flask_migrate import Migrate
@@ -28,6 +32,7 @@ app = Flask(__name__)
 
 app.config.from_object("config.Config")
 app.secret_key = 'secret sauce!'
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 db.init_app(app)
 
@@ -101,7 +106,33 @@ def editar_evento(id_evento):
 @login_required
 def salvar_cadastro_evento():
     evento_service.salvar(request.form)
+
     return redirect(url_for('eventos'))
+
+@app.route('/sign_s3/')
+def sign_s3():
+    S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
+
+    file_name = request.args.get('file_name')
+    file_type = request.args.get('file_type')
+
+    s3 = boto3.client('s3')
+
+    presigned_post = s3.generate_presigned_post(
+        Bucket = S3_BUCKET,
+        Key = file_name,
+        Fields = {"acl": "public-read", "Content-Type": file_type},
+        Conditions = [
+            {"acl": "public-read"},
+            {"Content-Type": file_type}
+        ],
+        ExpiresIn = 3600
+    )
+
+    return json.dumps({
+        'data': presigned_post,
+        'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
+    })
 
 
 @app.route("/evento/<id_evento>/deletar", methods=["POST"])

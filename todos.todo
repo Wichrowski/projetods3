@@ -1,5 +1,6 @@
-- [ ] Corrigir deploy Heroku
-- [ ] Relacionar parceiro a um novo evento
+- [ ] Adicionar imagem ao evento
+  - [ ] Bloquear submit antes do upload da imagem
+  - [ ] Nome da imagem como uuid
 - [ ] Login
   - [ ] Implementar next
   - [X] Logout
@@ -19,7 +20,8 @@
   - [X] Filtrar por Cidade
   - [X] Filtrar por Tipo
   - [X] Filtrar por Parceiro
-- [ ] Adicionar imagem ao evento
+- [ ] Utilizar enum de areas no form de cadastro
+- [ ] Utilizar enum de tipos no form de cadastro
 - [ ] Validar valores recebidos dos filtros
 - [ ] Validar autorizacao usuario ao deletar
 - [ ] Validar autorizacao usuario ao salvar
@@ -74,3 +76,5 @@
 - [X] Adicionar descricao ao evento
 - [X] Visualizar eventos
 - [X] Seeding de usuario e parceiro
+- [X] Corrigir deploy Heroku
+- [X] Relacionar parceiro a um novo evento
